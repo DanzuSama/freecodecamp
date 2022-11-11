@@ -1,0 +1,21 @@
+import numpy as np
+
+
+def calculate(list):
+    if(len(list) != 9):
+        raise ValueError('List must contain nine numbers.')
+    a = np.array(list)
+    a = a.reshape(3, 3)
+
+    #dictionary
+    calculations = {
+                ### mean funcition get a < list and use axis1 and axis0. 
+                ### The same principles work for the rest of the functions.
+                'mean': [[*np.mean(a, axis=0)], [*np.mean(a, axis=1)], a.mean()],
+                'variance': [[*np.var(a, axis=0)], [*np.var(a, axis=1)], a.var()],
+                'standard deviation': [[*np.std(a, axis=0)], [*np.std(a, axis=1)], a.std()],
+                'max': [[*np.max(a, axis=0)], [*np.max(a, axis=1)], a.max()],
+                'min': [[*np.min(a, axis=0)], [*np.min(a, axis=1)], a.min()],
+                'sum': [[*np.sum(a, axis=0)], [*np.sum(a, axis=1)],  a.sum()]
+            }
+    return calculations
